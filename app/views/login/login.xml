@@ -1,11 +1,14 @@
-<Page>
+<Page loaded="loaded">
 	<ActionBar title="Groceries"></ActionBar>
-	<StackLayout>
-		<TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
-		<TextField hint="Password" secure="true" />
+	<FlexboxLayout>
+		<StackLayout class="form">
+			<Image src="~/images/logo.png" />
 
-		<Button text="Sign in" />
-		<Button text="Sign up for Groceries" />
+			<TextField id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="input input-border"/>
+			<TextField secure="true" text="{{ password }}" hint="Password" class="input input-border"/>
 
-	</StackLayout>
+			<Button text="Sign in" class="btn btn-primary" tap="signIn" />
+			<Button text="Sign up for Groceries" class="link" tap="register" />
+		</StackLayout>
+	</FlexboxLayout>
 </Page>
