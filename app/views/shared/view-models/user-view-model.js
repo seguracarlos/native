@@ -8,7 +8,8 @@ function User(info) {
   // You can add properties to observables on creation
   var viewModel = new observableModule.fromObject({
     email: info.email || "",
-    password: info.password || ""
+    password: info.password || "",
+    isLoggingIn: true
   });
 
   viewModel.register = function() {
@@ -21,10 +22,28 @@ function User(info) {
       }),
       headers: getCommonHeaders()
     }).then(handleErrors);
-} ;
+  };
+  viewModel.login = function () {
+    return fetchModule.fetch(config.apiUrl + "user/" + config.appKey + "/login", {
+      method: "POST",
+      body: JSON.stringify({
+        username: viewModel.get("email"),
+        password: viewModel.get("password")
+      }),
+      headers: getCommonHeaders()
+    })
+      .then(handleErrors)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        config.token = data._kmd.authtoken;
+      });
+  };
 
   return viewModel;
 }
+
 
 function getCommonHeaders() {
   return {

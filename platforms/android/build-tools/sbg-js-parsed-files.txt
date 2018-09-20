@@ -156,8 +156,8 @@ C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\tns_modul
 C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\tns_modules\tns-core-modules\xml\xml.js
 C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\list\list.js
 C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\login\login.js
-C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\sharen\config.js
-C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\sharen\utils\hint-util.js
-C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\sharen\utils\status-bar-util.js
-C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\sharen\view-models\grocery-list-view-model.js
-C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\sharen\view-models\user-view-model.js
+C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\shared\config.js
+C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\shared\utils\hint-util.js
+C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\shared\utils\status-bar-util.js
+C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\shared\view-models\grocery-list-view-model.js
+C:\Users\TERMEN\Desktop\tuto\platforms\android\app\src\main\assets\app\views\shared\view-models\user-view-model.js

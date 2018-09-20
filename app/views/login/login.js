@@ -1,20 +1,58 @@
-exports.loaded = function (args) {
-    page = args.object;
-    page.bindingContext = user;
-};
-exports.signIn = function () {
-    alert("Signing in");
-};
+var UserViewModel = require("../shared/view-models/user-view-model");
+var dialogsModule = require("ui/dialogs");
+var frameModule = require("ui/frame");
 
-exports.register = function () {
-    alert("Registering");
-};
+var user = new UserViewModel();
 var page;
 var email;
 
-var observableModule = require("data/observable");
+exports.loaded = function (args) {
+    page = args.object;
+    page.actionBarHidden = true;
+    isLoggingIn = user.isLoggingIn;
+    page.bindingContext = user;
+};
 
-var user = new observableModule.fromObject({
-    email: "nativescriptrocks@progress.com",
-    password: "password"
-});
+exports.toggleDisplay = function () {
+    isLoggingIn = !isLoggingIn;
+    user.set('isLoggingIn', isLoggingIn);
+};
+
+exports.submit = function () {
+    if (isLoggingIn) {
+        login();
+    } else {
+        signUp();
+    }
+};
+
+function login() {
+    user.login()
+        .catch(function (error) {
+            dialogsModule.alert({
+                message: "Unfortunately we could not find your account.",
+                okButtonText: "OK"
+            });
+            return Promise.reject();
+        })
+        .then(function () {
+            frameModule.topmost().navigate("views/list/list");
+        });
+};
+
+function signUp() {
+    user.register()
+        .then(function () {
+            dialogsModule
+                .alert("Your account was successfully created.")
+                .then(function () {
+                    exports.toggleDisplay();
+                });
+        }).catch(function (error) {
+            dialogsModule
+                .alert({
+                    message: "Unfortunately we were unable to create your account.",
+                    okButtonText: "OK"
+                });
+        });
+};

@@ -1,14 +1,14 @@
 <Page loaded="loaded">
-	<ActionBar title="Groceries"></ActionBar>
+	
 	<FlexboxLayout>
-		<StackLayout class="form">
+		<StackLayout id="form" class="{{ isLoggingIn ? 'form' : 'form dark' }}" orientation="vertical">
 			<Image src="~/images/logo.png" />
 
-			<TextField id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="input input-border"/>
-			<TextField secure="true" text="{{ password }}" hint="Password" class="input input-border"/>
+			<TextField class="input input-border" id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+			<TextField class="input input-border" secure="true" text="{{ password }}" hint="Password" />
 
-			<Button text="Sign in" class="btn btn-primary" tap="signIn" />
-			<Button text="Sign up for Groceries" class="link" tap="register" />
+			<Button class="btn btn-primary" text="{{ isLoggingIn ? 'Sign in' : 'Sign up' }}" tap="submit" />
+			<Button text="{{ isLoggingIn ? 'Sign up' : 'Back to login' }}" class="link" tap="toggleDisplay" />
 		</StackLayout>
 	</FlexboxLayout>
 </Page>
